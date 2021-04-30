@@ -1,16 +1,17 @@
 const {
-  executeUnprotected: runner,
+  executeUnprotected: execute,
+  spawnNormal,
   normalDbPath
 } = require('../helpers/runner');
 const fs = require('fs');
 
-const firstTodo = 'Todo #1'
+const firstTodo = 'First Todo'
 
 afterAll(() => fs.unlinkSync(normalDbPath));
 
 describe("CLI non-interactive mode", () => {
   test("It should show usage menu", () => {
-    return runner(['help'])
+    return execute(['help'])
       .then(result => {
         const { stdOut, stdErr } = result;
         expect(result).toHaveProperty('stdOut');
@@ -21,7 +22,7 @@ describe("CLI non-interactive mode", () => {
       })
   });
   test("It should add new todo", () => {
-    return runner(['new', firstTodo])
+    return execute(['new', firstTodo])
       .then(result => {
         const { stdOut, stdErr } = result;
         expect(result).toHaveProperty('stdOut');
@@ -32,18 +33,18 @@ describe("CLI non-interactive mode", () => {
       })
   });
   test("It should list all todos", () => {
-    return runner(['ls'])
+    return execute(['ls'])
       .then(result => {
         const { stdOut, stdErr } = result;
         expect(result).toHaveProperty('stdOut');
         expect(result).toHaveProperty('stdErr');
         expect(stdOut).not.toBeNull();
         expect(stdErr).toEqual('');
-        expect(stdOut).toContain('Test todo 1 ✗\n')
+        expect(stdOut).toContain(firstTodo)
       });
   });
   test("It should mark todo as complete", () => {
-    return runner(['done', '1'])
+    return execute(['done', '1'])
       .then(result => {
         const { stdOut, stdErr } = result;
         expect(result).toHaveProperty('stdOut');
@@ -56,18 +57,18 @@ describe("CLI non-interactive mode", () => {
       });
   });
   test("It should list todo with done mark", () => {
-    return runner(['ls'])
+    return execute(['ls'])
       .then(result => {
         const { stdOut, stdErr } = result;
         expect(result).toHaveProperty('stdOut');
         expect(result).toHaveProperty('stdErr');
         expect(stdOut).not.toBeNull();
         expect(stdErr).toEqual('');
-        expect(stdOut).toContain('Test todo 1 ✓\n')
+        expect(stdOut).toContain(firstTodo)
       });
   });
   test("It should show invalid command error", () => {
-    return runner(['lsx'])
+    return execute(['lsx'])
       .then(result => {
         const { stdOut, stdErr } = result;
         expect(result).toHaveProperty('stdOut');
