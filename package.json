@@ -1,0 +1,23 @@
+{
+  "name": "sample_cli",
+  "version": "1.0.0",
+  "description": "",
+  "main": "bin/index.js",
+  "scripts": {
+    "test": "NODE_ENV=TEST jest --silent",
+    "rm-test-db": "rm bin/todo_test_db.json"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bin": {
+    "sample_cli": "./bin/index.js"
+  },
+  "devDependencies": {
+    "@types/jest": "^26.0.23",
+    "jest": "^26.6.3"
+  },
+  "dependencies": {
+    "inquirer": "^8.0.0"
+  }
+}
