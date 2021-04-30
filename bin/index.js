@@ -133,7 +133,6 @@ const interactiveMarkTodo = async () => {
         }
     })
     .filter(Boolean);
-    console.log(formattedTodos)
     const { id } = await markTodoPrompt({
         type: 'checkbox',
         name: 'id',
@@ -187,24 +186,26 @@ const interactiveMenu = async () => {
       }
 }
 
-switch (args[0]) {
-    case 'help':
-        usage();
-        break
-    case 'new':
-        newTodo();
-        break
-    case 'ls':
-        listTodos();
-        break
-    case 'done':
-        markComplete();
-        break
-    case 'interactive':
-        interactiveMenu()
-        break
-    default:
-        errorLog('Invalid command passed. Use "todo help" for available options')
+if(args[0]) {
+    switch (args[0]) {
+        case 'help':
+            usage();
+            break
+        case 'new':
+            newTodo();
+            break
+        case 'ls':
+            listTodos();
+            break
+        case 'done':
+            markComplete();
+            break
+        case 'interactive':
+            interactiveMenu()
+            break
+        default:
+            errorLog('Invalid command passed. Use "todo help" for available options')
+    }
 }
 
 module.exports = {
