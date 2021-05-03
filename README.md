@@ -1,5 +1,7 @@
 # TODO CLI
 
+![Tests](https://github.com/n0wfal/jest-cli-testing/actions/workflows/node.js.yml/badge.svg)
+
 A CLI application built with Node JS and minimal dependencies.
 
 ## Setup & Installation.
