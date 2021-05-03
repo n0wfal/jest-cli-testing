@@ -11,7 +11,8 @@
   "author": "",
   "license": "ISC",
   "bin": {
-    "sample_cli": "./bin/index.js"
+    "sample_cli": "./bin/index.js",
+    "sample_cli_obfuscated": "./bin/obfuscated.js"
   },
   "devDependencies": {
     "@types/jest": "^26.0.23",
