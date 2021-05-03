@@ -4,7 +4,7 @@
   "description": "",
   "main": "bin/index.js",
   "scripts": {
-    "test": "NODE_ENV=TEST jest --silent",
+    "test": "NODE_ENV=TEST jest",
     "rm-test-db": "rm bin/todo_test_db.json"
   },
   "keywords": [],
