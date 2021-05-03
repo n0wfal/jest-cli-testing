@@ -11,7 +11,7 @@ const firstTodo = "First Todo";
 const secondTodo = "Second Todo";
 
 afterAll(() => {
-  fs.existsSync(protectedDbPath);
+  if (fs.existsSync(protectedDbPath)) fs.unlinkSync(protectedDbPath);
 });
 
 describe("CLI non-interactive mode", () => {
