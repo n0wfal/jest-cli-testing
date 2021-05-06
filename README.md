@@ -1,15 +1,12 @@
 # TODO CLI
 
-![Tests](https://github.com/n0wfal/jest-cli-testing/actions/workflows/node.js.yml/badge.svg)
-
 A CLI application built with Node JS and minimal dependencies.
 
 ## Setup & Installation.
 
-1. Clone the repository using `git clone https://github.com/n0wfal/jest-cli-testing.git`
-2. Install dependencies using `npm install`
-3. Run the application using `node bin/index.js`
-4. Install globally using `npm install -g .` and launch from shell using command `sample_cli`
+1. Install dependencies using `npm install`
+2. Run the application using `node bin/index.js`
+3. Install globally using `npm install -g .` and launch from shell using command `sample_cli`
 
 ## Usage
 
@@ -30,5 +27,3 @@ A CLI application built with Node JS and minimal dependencies.
 ## Tests
 
 `npm run test` to run the tests.
-
-- [ ] Improve code coverage
